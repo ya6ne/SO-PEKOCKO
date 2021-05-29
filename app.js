@@ -7,7 +7,7 @@ const path = require('path');
 
 /* const cors = require('cors'); */
 
-mongoose.connect('mongodb+srv://mydb:1234@cluster0.ulu6j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://admin:1234@cluster0.ulu6j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 {useNewUrlParser: true, useUnifiedTopology: true} )
 .then(() => console.log('Connexion à MongoDB réussie !'))
 .catch(() => console.log('Connexion à MongoDB échouée !'));
