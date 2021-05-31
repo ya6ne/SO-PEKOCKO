@@ -3,8 +3,10 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 var CryptoJS = require("crypto-js");
 
-var key = CryptoJS.enc.Hex.parse("000102030405060708090a0b0c0d0e0f"); /* key et iv pour CryptoJs */
-var iv = CryptoJS.enc.Hex.parse("101112131415161718191a1b1c1d1e1f");
+
+
+var key = CryptoJS.enc.Hex.parse(process.env.crKey); /* variable d'envirenement */
+var iv = CryptoJS.enc.Hex.parse(process.env.crIv);
 
 
 exports.signup = (req, res, next) => {
@@ -39,9 +41,8 @@ exports.login = (req, res, next) => {
               userId: user._id,
               token: jwt.sign(
                 { userId: user._id },
-                'SECRET_KEY',
-                { expiresIn: '1h'} /* (ms) => 5min */
-                
+                process.env.jwtKey, /* variable d'envirenement !!!! */
+                { expiresIn: '1h'} 
               )
             });
           })

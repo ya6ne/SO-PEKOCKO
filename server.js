@@ -1,4 +1,6 @@
 const http = require('http');
+const dotenv = require('dotenv'); /* modification variable env */
+dotenv.config({ path: './config.env' });
 const app = require('./app');
 
 const normalizePort = val => {
